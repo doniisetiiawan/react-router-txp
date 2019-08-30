@@ -43,6 +43,12 @@ class App extends Component {
             User
           </Link>
           <NavLink
+            to="/"
+            exact
+          >
+            Home
+          </NavLink>
+          <NavLink
             to="/dashboard"
             activeClassName="selectedLink"
           >
