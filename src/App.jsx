@@ -24,8 +24,14 @@ function App() {
       />
       <Route
         path="/dashboard"
-        component={StockListComponent}
+        component={DashboardComponent}
         sensitive
+      />
+      <Route
+        path="/user"
+        render={() => (
+          <div> Inside User Route </div>
+        )}
       />
     </div>
   );
