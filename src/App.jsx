@@ -17,6 +17,16 @@ function App() {
         component={DashboardComponent}
         strict
       />
+      <Route
+        path="/Dashboard"
+        component={DashboardComponent}
+        sensitive
+      />
+      <Route
+        path="/dashboard"
+        component={StockListComponent}
+        sensitive
+      />
     </div>
   );
 }
