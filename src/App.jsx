@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
+import {Link, NavLink, Route} from 'react-router-dom';
 import HomeComponent from './components/home/home.component';
 import DashboardComponent from './components/dashboard/dashboard.component';
 import GitHubComponent from './components/github/github.component';
@@ -42,6 +42,11 @@ class App extends Component {
           >
             User
           </Link>
+          <NavLink
+            to="/dashboard"
+            activeClassName="selectedLink">
+            Dashboard
+          </NavLink>
         </nav>
         <Route
           path="/"
