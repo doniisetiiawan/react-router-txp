@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import HomeComponent from './components/home/home.component';
 import DashboardComponent from './components/dashboard/dashboard.component';
 import GitHubComponent from './components/github/github.component';
+import CategoryComponent from './components/category/category.component';
 import './App.css';
 
 function App() {
@@ -69,6 +70,10 @@ function App() {
       <Route
         path="/user/:userID(\d+)"
         component={GitHubComponent}
+      />
+      <Route
+        path="/category"
+        component={CategoryComponent}
       />
     </div>
   );
