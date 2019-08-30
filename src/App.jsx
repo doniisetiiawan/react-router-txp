@@ -69,11 +69,11 @@ class App extends Component {
               pathname: '/user',
               search: '?id=1',
               hash: '#hash',
-              state: { isAdmin: true }
+              state: { isAdmin: true },
             }}
             activeStyle={{
               background: 'red',
-              color: 'white'
+              color: 'white',
             }}
             isActive={(match, location) => {
               if (!match) {
@@ -81,7 +81,27 @@ class App extends Component {
               }
               const searchParams = new URLSearchParams(location.search);
               return match.isExact && searchParams.has('id');
-            }}>
+            }}
+          >
+            User
+          </NavLink>
+          <NavLink
+            to="/user"
+            activeStyle={{
+              background: 'red',
+              color: 'white',
+            }}
+            location={{
+              search: '?id=2',
+            }}
+            isActive={(match, location) => {
+              if (!match) {
+                return false;
+              }
+              const searchParams = new URLSearchParams(location.search);
+              return match.isExact && searchParams.has('id');
+            }}
+          >
             User
           </NavLink>
         </nav>
