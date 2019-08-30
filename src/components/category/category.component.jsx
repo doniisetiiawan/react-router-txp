@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import {Link, NavLink, Route} from 'react-router-dom';
 
 const CategoryComponent = ({ match }) => (
   <div className="nested-route-container">
@@ -7,6 +7,21 @@ const CategoryComponent = ({ match }) => (
       <h4> Root: </h4>
       <h5> path: {match.path}, isExact: {match.isExact.toString()}</h5>
     </div>
+    <nav>
+      <Link
+        to={`${match.url}/pictures`}
+      >
+        Pictures
+      </Link>
+      <NavLink
+        to={`${match.url}/books`}
+        activeStyle={{
+          background: 'orange',
+        }}
+      >
+        Books
+      </NavLink>
+    </nav>
 
     <Route
       path={`${match.url}/pictures`}
