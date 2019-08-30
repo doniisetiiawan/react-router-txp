@@ -32,6 +32,16 @@ class App extends Component {
           >
             Dashboard
           </Link>
+          <Link
+            to={{
+              pathname: '/user',
+              search: '?id=1',
+              hash: '#hash',
+              state: { isAdmin: true },
+            }}
+          >
+            User
+          </Link>
         </nav>
         <Route
           path="/"
@@ -67,10 +77,25 @@ class App extends Component {
         />
         <Route
           path="/user"
-          render={({ match }) => {
-            console.log(match);
+          render={({ location }) => {
+            const {
+              pathname, search, hash, state,
+            } = location;
             return (
-              <div> Inside User route </div>
+              <div>
+                Inside User route
+                <h5>Pathname: {pathname}</h5>
+                <h5>Search: {search}</h5>
+                <h5>Hash: {hash}</h5>
+                <h5>State: {'{'}
+                  {Object.keys(state).map((element, index) => (
+                    <span key={index}>
+                      {element}: {state[element].toString()}
+                    </span>
+                  ))}
+                  {'}'}
+                </h5>
+              </div>
             );
           }}
         />

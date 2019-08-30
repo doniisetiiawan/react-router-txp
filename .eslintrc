@@ -20,6 +20,7 @@
     "react/jsx-one-expression-per-line": "off",
     "react/prop-types": "warn",
     "no-console": "off",
-    "no-shadow": "warn"
+    "no-shadow": "warn",
+    "react/no-array-index-key": "warn"
   }
 }
