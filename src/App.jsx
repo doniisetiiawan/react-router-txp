@@ -13,8 +13,9 @@ function App() {
         exact
       />
       <Route
-        path="/dashboard"
+        path="/dashboard/"
         component={DashboardComponent}
+        strict
       />
     </div>
   );
