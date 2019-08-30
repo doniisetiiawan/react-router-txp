@@ -39,6 +39,24 @@ function App() {
           <div> Inside Sidenav route </div>
         )}
       />
+      <Route
+        path="/user"
+        render={({ match }) => {
+          console.log(match);
+          return (
+            <div> Inside User route </div>
+          );
+        }}
+      />
+      <Route
+        path="/sidenav"
+        children={({ match }) => {
+          console.log(match)
+          return (
+            <div> Inside Sidenav route </div>
+          );
+        }}
+      />
     </div>
   );
 }
