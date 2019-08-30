@@ -5,6 +5,7 @@ import DashboardComponent from './components/dashboard/dashboard.component';
 import GitHubComponent from './components/github/github.component';
 import CategoryComponent from './components/category/category.component';
 import StockListComponent from './components/stock-list/stock-list.component';
+import Footer from './components/footer/footer.component';
 import './App.css';
 
 class App extends Component {
@@ -190,6 +191,8 @@ class App extends Component {
           path="/stocks"
           component={StockListComponent}
         />
+
+        <Footer />
       </div>
     );
   }
