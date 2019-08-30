@@ -8,8 +8,9 @@ function App() {
   return (
     <div className="container">
       <Route
-        path="/home"
+        path="/"
         component={HomeComponent}
+        exact
       />
       <Route
         path="/dashboard"
