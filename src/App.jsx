@@ -49,8 +49,9 @@ class App extends Component {
             Home
           </NavLink>
           <NavLink
-            to="/dashboard"
+            to="/dashboard/"
             activeClassName="selectedLink"
+            strict
           >
             Dashboard
           </NavLink>
