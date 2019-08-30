@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link, NavLink, Route} from 'react-router-dom';
+import { Link, NavLink, Route } from 'react-router-dom';
 import HomeComponent from './components/home/home.component';
 import DashboardComponent from './components/dashboard/dashboard.component';
 import GitHubComponent from './components/github/github.component';
@@ -44,8 +44,18 @@ class App extends Component {
           </Link>
           <NavLink
             to="/dashboard"
-            activeClassName="selectedLink">
+            activeClassName="selectedLink"
+          >
             Dashboard
+          </NavLink>
+          <NavLink
+            to="/user"
+            activeStyle={{
+              background: 'red',
+              color: 'white',
+            }}
+          >
+            User
           </NavLink>
         </nav>
         <Route
@@ -80,30 +90,30 @@ class App extends Component {
             <div> Inside Sidenav route </div>
           )}
         />
-        <Route
-          path="/user"
-          render={({ location }) => {
-            const {
-              pathname, search, hash, state,
-            } = location;
-            return (
-              <div>
-                Inside User route
-                <h5>Pathname: {pathname}</h5>
-                <h5>Search: {search}</h5>
-                <h5>Hash: {hash}</h5>
-                <h5>State: {'{'}
-                  {Object.keys(state).map((element, index) => (
-                    <span key={index}>
-                      {element}: {state[element].toString()}
-                    </span>
-                  ))}
-                  {'}'}
-                </h5>
-              </div>
-            );
-          }}
-        />
+        {/* <Route */}
+        {/*  path="/user" */}
+        {/*  render={({ location }) => { */}
+        {/*    const { */}
+        {/*      pathname, search, hash, state, */}
+        {/*    } = location; */}
+        {/*    return ( */}
+        {/*      <div> */}
+        {/*        Inside User route */}
+        {/*        <h5>Pathname: {pathname}</h5> */}
+        {/*        <h5>Search: {search}</h5> */}
+        {/*        <h5>Hash: {hash}</h5> */}
+        {/*        <h5>State: {'{'} */}
+        {/*          {Object.keys(state).map((element, index) => ( */}
+        {/*            <span key={index}> */}
+        {/*              {element}: {state[element].toString()} */}
+        {/*            </span> */}
+        {/*          ))} */}
+        {/*          {'}'} */}
+        {/*        </h5> */}
+        {/*      </div> */}
+        {/*    ); */}
+        {/*  }} */}
+        {/* /> */}
         <Route
           path="/sidenav"
           children={({ match }) => {
