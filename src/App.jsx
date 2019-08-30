@@ -33,6 +33,12 @@ function App() {
           <div> Inside User Route </div>
         )}
       />
+      <Route
+        path="/sidenav"
+        children={() => (
+          <div> Inside Sidenav route </div>
+        )}
+      />
     </div>
   );
 }
