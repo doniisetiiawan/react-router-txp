@@ -4,6 +4,7 @@ import HomeComponent from './components/home/home.component';
 import DashboardComponent from './components/dashboard/dashboard.component';
 import GitHubComponent from './components/github/github.component';
 import CategoryComponent from './components/category/category.component';
+import StockListComponent from './components/stock-list/stock-list.component';
 import './App.css';
 
 function App() {
@@ -74,6 +75,10 @@ function App() {
       <Route
         path="/category"
         component={CategoryComponent}
+      />
+      <Route
+        path="/stocks"
+        component={StockListComponent}
       />
     </div>
   );
