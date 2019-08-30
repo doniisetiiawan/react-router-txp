@@ -64,6 +64,26 @@ class App extends Component {
           >
             User
           </NavLink>
+          <NavLink
+            to={{
+              pathname: '/user',
+              search: '?id=1',
+              hash: '#hash',
+              state: { isAdmin: true }
+            }}
+            activeStyle={{
+              background: 'red',
+              color: 'white'
+            }}
+            isActive={(match, location) => {
+              if (!match) {
+                return false;
+              }
+              const searchParams = new URLSearchParams(location.search);
+              return match.isExact && searchParams.has('id');
+            }}>
+            User
+          </NavLink>
         </nav>
         <Route
           path="/"
