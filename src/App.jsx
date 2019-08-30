@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import HomeComponent from './components/home/home.component';
 import DashboardComponent from './components/dashboard/dashboard.component';
+import GitHubComponent from './components/github/github.component';
 import './App.css';
 
 function App() {
@@ -51,11 +52,23 @@ function App() {
       <Route
         path="/sidenav"
         children={({ match }) => {
-          console.log(match)
+          console.log(match);
           return (
             <div> Inside Sidenav route </div>
           );
         }}
+      />
+      <Route
+        path="/github/:githubID/:twitterID?"
+        component={GitHubComponent}
+      />
+      <Route
+        path="/github/:githubID(\w+)"
+        component={GitHubComponent}
+      />
+      <Route
+        path="/user/:userID(\d+)"
+        component={GitHubComponent}
       />
     </div>
   );
