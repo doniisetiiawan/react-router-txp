@@ -5,7 +5,7 @@ function DashboardComponent(props) {
   return (
     <div>
       In DashboardComponent <br />
-      From : {location.state.from}
+      {/* From : {location.state.from} */}
     </div>
   );
 }
