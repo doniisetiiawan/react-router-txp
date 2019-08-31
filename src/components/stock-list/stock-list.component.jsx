@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Prompt, Route } from 'react-router-dom';
+import { Prompt, Redirect, Route } from 'react-router-dom';
 
 const StatsComponent = () => (
   <div> Showing Stats </div>
@@ -33,11 +33,17 @@ class StockListComponent extends Component {
     super(props);
     this.state = {
       isFormSubmitted: false,
+      isUserLoggedIn: false,
     };
   }
 
-  componentDidMount() {
-    console.log('Inside StockList component\'s componentWillMount fn');
+  componentWillMount() {
+    const isUserLoggedIn = localStorage.getItem('isUserLoggedIn');
+    if (isUserLoggedIn) {
+      this.setState({
+        isUserLoggedIn,
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -55,7 +61,17 @@ class StockListComponent extends Component {
 
   render() {
     const { match } = this.props;
-    const { isFormSubmitted } = this.state;
+    const { isFormSubmitted, isUserLoggedIn } = this.state;
+    if (!isUserLoggedIn) {
+      return (
+        <Redirect
+          to={{
+            pathname: '/login',
+            state: { callbackURL: match.url },
+          }}
+        />
+      );
+    }
 
     return (
       <div>

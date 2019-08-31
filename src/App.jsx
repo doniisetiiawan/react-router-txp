@@ -7,14 +7,15 @@ import CategoryComponent from './components/category/category.component';
 import StockListComponent from './components/stock-list/stock-list.component';
 import Footer from './components/footer/footer.component';
 import UserComponent from './components/User/user.component';
+import LoginComponent from './components/Login/login.component';
 import './App.css';
 
 class App extends Component {
-  refCallback = (node) => {
-    node.onmouseover = () => {
-      node.focus();
-    };
-  };
+  // refCallback = (node) => {
+  //   node.onmouseover = () => {
+  //     node.focus();
+  //   };
+  // };
 
   render() {
     return (
@@ -22,18 +23,18 @@ class App extends Component {
         <nav>
           <Link to="/">Home</Link>
           <Link to="/dashboard">Dashboard</Link>
-          <Link
-            to="/"
-            innerRef={this.refCallback}
-          >
-            Home
-          </Link>
-          <Link
-            to="/dashboard"
-            innerRef={this.refCallback}
-          >
-            Dashboard
-          </Link>
+          {/* <Link */}
+          {/*  to="/" */}
+          {/*  innerRef={this.refCallback} */}
+          {/* > */}
+          {/*  Home */}
+          {/* </Link> */}
+          {/* <Link */}
+          {/*  to="/dashboard" */}
+          {/*  innerRef={this.refCallback} */}
+          {/* > */}
+          {/*  Dashboard */}
+          {/* </Link> */}
           <Link
             to={{
               pathname: '/user',
@@ -195,6 +196,10 @@ class App extends Component {
         <Route
           path="/user"
           component={UserComponent}
+        />
+        <Route
+          path="/login"
+          component={LoginComponent}
         />
 
         <Footer />
