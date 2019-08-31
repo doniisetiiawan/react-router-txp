@@ -1,12 +1,13 @@
 import React from 'react';
 
-const DashboardComponent = (props) => (
-  <div className="dashboard">
-    Inside Dashboard route
-    <button type="button" onClick={() => props.history.push('/user')}>
-      User
-    </button>
-  </div>
-);
+function DashboardComponent(props) {
+  const { location } = props;
+  return (
+    <div>
+      In DashboardComponent <br />
+      From : {location.state.from}
+    </div>
+  );
+}
 
 export default DashboardComponent;
