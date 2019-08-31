@@ -209,8 +209,14 @@ class App extends Component {
             component={LoginComponent}
           />
           <Route
-            path="/:id"
+            path="/user"
             render={({ match }) => <div> Route with path {match.url}</div>}
+          />
+          <Route
+            path="*"
+            render={({ location }) => (
+              <div> 404 - {location.pathname} not found</div>
+            )}
           />
         </Switch>
 
