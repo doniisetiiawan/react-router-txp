@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Link, NavLink, Route, Switch,
+  Link, NavLink, Redirect, Route, Switch,
 } from 'react-router-dom';
 import HomeComponent from './components/home/home.component';
 import DashboardComponent from './components/dashboard/dashboard.component';
@@ -212,12 +212,13 @@ class App extends Component {
             path="/user"
             render={({ match }) => <div> Route with path {match.url}</div>}
           />
-          <Route
-            path="*"
-            render={({ location }) => (
-              <div> 404 - {location.pathname} not found</div>
-            )}
-          />
+          {/* <Route */}
+          {/*  path="*" */}
+          {/*  render={({ location }) => ( */}
+          {/*    <div> 404 - {location.pathname} not found</div> */}
+          {/*  )} */}
+          {/* /> */}
+          <Redirect to="/home" />
         </Switch>
 
         <Footer />
