@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Link, NavLink, Route } from 'react-router-dom';
+import {
+  Link, NavLink, Route, Switch,
+} from 'react-router-dom';
 import HomeComponent from './components/home/home.component';
 import DashboardComponent from './components/dashboard/dashboard.component';
 import GitHubComponent from './components/github/github.component';
@@ -201,6 +203,16 @@ class App extends Component {
           path="/login"
           component={LoginComponent}
         />
+        <Switch>
+          <Route
+            path="/login"
+            component={LoginComponent}
+          />
+          <Route
+            path="/:id"
+            render={({ match }) => <div> Route with path {match.url}</div>}
+          />
+        </Switch>
 
         <Footer />
       </div>
