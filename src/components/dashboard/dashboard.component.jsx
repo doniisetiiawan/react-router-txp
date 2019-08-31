@@ -1,7 +1,7 @@
 import React from 'react';
 
 function DashboardComponent(props) {
-  const { location } = props;
+  // const { location } = props;
   return (
     <div>
       In DashboardComponent <br />

@@ -6,6 +6,7 @@ import GitHubComponent from './components/github/github.component';
 import CategoryComponent from './components/category/category.component';
 import StockListComponent from './components/stock-list/stock-list.component';
 import Footer from './components/footer/footer.component';
+import UserComponent from './components/User/user.component';
 import './App.css';
 
 class App extends Component {
@@ -126,12 +127,12 @@ class App extends Component {
           component={DashboardComponent}
           sensitive
         />
-        <Route
-          path="/user"
-          render={() => (
-            <div> Inside User Route </div>
-          )}
-        />
+        {/* <Route */}
+        {/*  path="/user" */}
+        {/*  render={() => ( */}
+        {/*    <div> Inside User Route </div> */}
+        {/*  )} */}
+        {/* /> */}
         <Route
           path="/sidenav"
           children={() => (
@@ -190,6 +191,10 @@ class App extends Component {
         <Route
           path="/stocks"
           component={StockListComponent}
+        />
+        <Route
+          path="/user"
+          component={UserComponent}
         />
 
         <Footer />

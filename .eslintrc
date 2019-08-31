@@ -18,6 +18,7 @@
   "rules": {
     "no-undef": "warn",
     "react/jsx-one-expression-per-line": "off",
+    "react/state-in-constructor": "off",
     "react/prop-types": "warn",
     "no-console": "off",
     "no-shadow": "warn",
