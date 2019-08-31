@@ -218,6 +218,10 @@ class App extends Component {
           {/*    <div> 404 - {location.pathname} not found</div> */}
           {/*  )} */}
           {/* /> */}
+          <Redirect
+            from="/home"
+            to="/login"
+          />
           <Redirect to="/home" />
         </Switch>
 

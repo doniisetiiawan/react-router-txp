@@ -6,7 +6,7 @@ class UserComponent extends Component {
       isUserLoggedIn: false,
     };
 
-    componentDidMount = () => {
+    componentWillMount = () => {
       const isUserLoggedIn = localStorage.getItem('isUserLoggedIn');
       if (isUserLoggedIn) {
         this.setState({
