@@ -1,9 +1,10 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
-const HomeComponent = () => (
-  <div>
-    Inside Home route
-  </div>
-);
+function HomeComponent() {
+  return (
+    <Redirect to="/dashboard" />
+  );
+}
 
 export default HomeComponent;
