@@ -20,7 +20,7 @@
     "react/jsx-one-expression-per-line": "off",
     "react/state-in-constructor": "off",
     "no-mixed-operators": "off",
-    "react/prop-types": "warn",
+    "react/prop-types": "off",
     "no-console": "off",
     "no-shadow": "warn",
     "react/no-array-index-key": "warn",
