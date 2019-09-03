@@ -1,8 +1,9 @@
+import { applyMiddleware, createStore, compose } from 'redux';
+import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
+import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { applyMiddleware, createStore, compose } from 'redux';
-import { Provider } from 'react-redux';
-import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
+
 // import { Router } from 'react-router';
 import { createBrowserHistory } from 'history';
 
