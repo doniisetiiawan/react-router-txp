@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
+import { push, replace } from 'connected-react-router';
 import React from 'react';
 
 const Dashboard = ({
-  pathname, search, hash, state,
+  pathname, search, hash, state, push, replace,
 }) => (
   <div>
     <h4>In Dashboard</h4>
@@ -10,6 +11,22 @@ const Dashboard = ({
     <div> Search   : {search} </div>
     <div> Hash     : {hash} </div>
     <div> State-Key: {state ? state.key : null} </div>
+    <button
+      type="button"
+      onClick={() => {
+        push('/');
+      }}
+    >
+      HOME
+    </button>
+    <button
+      type="button"
+      onClick={() => {
+        replace('/counter');
+      }}
+    >
+      COUNTER
+    </button>
   </div>
 );
 
@@ -20,4 +37,12 @@ const mapStateToProps = (state) => ({
   state: state.router.location.state,
 });
 
-export default connect(mapStateToProps)(Dashboard);
+const mapDispatchToProps = (dispatch) => ({
+  push: (path) => dispatch(push(path)),
+  replace: (path) => dispatch(replace(path)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Dashboard);
