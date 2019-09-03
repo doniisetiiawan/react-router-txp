@@ -1,73 +1,16 @@
 import React from 'react';
 
-import {
-  BrowserRouter, Link, Route, Prompt,
-} from 'react-router-dom';
-import ConfirmationDialog from './components/confirmation-dialog/confirmation-dialog.component';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import Counter from './components/counter.component';
 
-class App extends React.Component {
-  state = {
-    showConfirmationDialog: false,
-    message: '',
-    callback: null,
-  };
-
-  userConfirmationFunc = (message, callback) => {
-    this.setState({
-      showConfirmationDialog: true,
-      message,
-      callback,
-    });
-  };
-
-  handleClose = (status) => {
-    const { callback } = this.state;
-    callback(status);
-    this.setState({
-      showConfirmationDialog: false,
-      message: '',
-      callback: null,
-    });
-  }
-
-  render() {
-    const { showConfirmationDialog, message } = this.state;
-    return (
-      <BrowserRouter
-        getUserConfirmation={this.userConfirmationFunc}
-      >
-        <div className="container">
-          <nav>
-            <Link to="/dashboard">Dashboard</Link>
-            <Link to="/user">User</Link>
-          </nav>
-          <Route
-            path="/dashboard"
-            render={({ location }) => (
-              <div>In Dashboard, Location Key:
-                {location.key}
-              </div>
-            )}
-          />
-          <Route
-            path="/user"
-            render={({ location }) => (
-              <div>
-                In User, Location Key: {location.key}
-                <Prompt message="This is shown in a confirmation window" />
-              </div>
-            )}
-          />
-          <ConfirmationDialog
-            isOpen={showConfirmationDialog}
-            message={message}
-            handleClose={this.handleClose}
-          />
-        </div>
-      </BrowserRouter>
-    );
-  }
-}
+const App = () => (
+  <div>
+    <Counter />
+    <Switch>
+      <Route path="/counter" component={Counter} />
+    </Switch>
+  </div>
+);
 
 export default App;

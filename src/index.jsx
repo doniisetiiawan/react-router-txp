@@ -1,17 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
+import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
 // import { Router } from 'react-router';
-// import { createBrowserHistory } from 'history';
+import { createBrowserHistory } from 'history';
 
 import rootReducer from './reducers';
 import './index.css';
-// import App from './App';
-import Counter from './components/counter.component';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(rootReducer);
+const history = createBrowserHistory();
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  rootReducer(history),
+  composeEnhancer(applyMiddleware(routerMiddleware(history))),
+);
 
 // const customHistory = createBrowserHistory();
 
@@ -23,7 +30,9 @@ const store = createStore(rootReducer);
 // );
 ReactDOM.render(
   <Provider store={store}>
-    <Counter />
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root'),
 );
